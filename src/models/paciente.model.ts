@@ -41,6 +41,9 @@ export class Paciente extends Entity {
 
   @property({
     type: 'date',
+    jsonSchema: {
+      format: 'date',
+    },
   })
   birthDate?: string;
 
