@@ -1,4 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Confianca} from './confianca.model';
 import {Pc} from './pc.model';
 
@@ -11,6 +11,12 @@ export class Paciente extends Entity {
     required: true,
   })
   email: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  name: string;
 
   @property({
     type: 'string',
@@ -68,7 +74,13 @@ export class Paciente extends Entity {
   })
   allergies?: string;
 
-  @hasMany(() => Confianca, {through: {model: () => Pc, keyFrom: 'emailPaciente', keyTo: 'emailConfianca'}})
+  @hasMany(() => Confianca, {
+    through: {
+      model: () => Pc,
+      keyFrom: 'emailPaciente',
+      keyTo: 'emailConfianca',
+    },
+  })
   confiancas: Confianca[];
 
   constructor(data?: Partial<Paciente>) {
