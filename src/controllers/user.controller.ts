@@ -105,7 +105,7 @@ export class UserController {
         description: 'Return current user',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(User),
+            schema: {},
           },
         },
       },
