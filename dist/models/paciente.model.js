@@ -25,6 +25,13 @@ let Paciente = class Paciente extends repository_1.Entity {
         required: true,
     }),
     (0, tslib_1.__metadata)("design:type", String)
+], Paciente.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, repository_1.property)({
+        type: 'string',
+        required: true,
+    }),
+    (0, tslib_1.__metadata)("design:type", String)
 ], Paciente.prototype, "cpf", void 0);
 (0, tslib_1.__decorate)([
     (0, repository_1.property)({
@@ -44,12 +51,6 @@ let Paciente = class Paciente extends repository_1.Entity {
     }),
     (0, tslib_1.__metadata)("design:type", String)
 ], Paciente.prototype, "phone", void 0);
-(0, tslib_1.__decorate)([
-    (0, repository_1.property)({
-        type: 'date',
-    }),
-    (0, tslib_1.__metadata)("design:type", String)
-], Paciente.prototype, "birthDate", void 0);
 (0, tslib_1.__decorate)([
     (0, repository_1.property)({
         type: 'string',
@@ -87,7 +88,13 @@ let Paciente = class Paciente extends repository_1.Entity {
     (0, tslib_1.__metadata)("design:type", String)
 ], Paciente.prototype, "allergies", void 0);
 (0, tslib_1.__decorate)([
-    (0, repository_1.hasMany)(() => confianca_model_1.Confianca, { through: { model: () => pc_model_1.Pc, keyFrom: 'emailPaciente', keyTo: 'emailConfianca' } }),
+    (0, repository_1.hasMany)(() => confianca_model_1.Confianca, {
+        through: {
+            model: () => pc_model_1.Pc,
+            keyFrom: 'emailPaciente',
+            keyTo: 'emailConfianca',
+        },
+    }),
     (0, tslib_1.__metadata)("design:type", Array)
 ], Paciente.prototype, "confiancas", void 0);
 Paciente = (0, tslib_1.__decorate)([

@@ -4,6 +4,7 @@ export declare class Confianca extends Entity {
     cpf: string;
     name: string;
     phone?: string;
+    type?: string;
     constructor(data?: Partial<Confianca>);
 }
 export interface ConfiancaRelations {

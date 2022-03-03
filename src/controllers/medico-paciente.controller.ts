@@ -1,4 +1,3 @@
-import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -6,7 +5,7 @@ import {
   repository,
   Where,
 } from '@loopback/repository';
-import {
+  import {
   del,
   get,
   getModelSchemaRef,
@@ -16,13 +15,17 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {Medico, Paciente} from '../models';
+import {
+Medico,
+Mp,
+Paciente,
+} from '../models';
 import {MedicoRepository} from '../repositories';
-@authenticate('jwt')
+
 export class MedicoPacienteController {
   constructor(
     @repository(MedicoRepository) protected medicoRepository: MedicoRepository,
-  ) {}
+  ) { }
 
   @get('/medicos/{id}/pacientes', {
     responses: {
@@ -62,8 +65,7 @@ export class MedicoPacienteController {
           }),
         },
       },
-    })
-    paciente: Omit<Paciente, 'email'>,
+    }) paciente: Omit<Paciente, 'email'>,
   ): Promise<Paciente> {
     return this.medicoRepository.pacientes(id).create(paciente);
   }
@@ -86,8 +88,7 @@ export class MedicoPacienteController {
       },
     })
     paciente: Partial<Paciente>,
-    @param.query.object('where', getWhereSchemaFor(Paciente))
-    where?: Where<Paciente>,
+    @param.query.object('where', getWhereSchemaFor(Paciente)) where?: Where<Paciente>,
   ): Promise<Count> {
     return this.medicoRepository.pacientes(id).patch(paciente, where);
   }
@@ -102,8 +103,7 @@ export class MedicoPacienteController {
   })
   async delete(
     @param.path.string('id') id: string,
-    @param.query.object('where', getWhereSchemaFor(Paciente))
-    where?: Where<Paciente>,
+    @param.query.object('where', getWhereSchemaFor(Paciente)) where?: Where<Paciente>,
   ): Promise<Count> {
     return this.medicoRepository.pacientes(id).delete(where);
   }

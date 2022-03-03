@@ -1,5 +1,6 @@
 import { TokenService } from '@loopback/authentication';
 import { Credentials, MyUserService, User, UserRepository } from '@loopback/authentication-jwt';
+import { FilterExcludingWhere } from '@loopback/repository';
 import { SchemaObject } from '@loopback/rest';
 import { UserProfile } from '@loopback/security';
 export declare class NewUserRequest extends User {
@@ -24,6 +25,7 @@ export declare class UserController {
         token: string;
         user: User;
     }>;
-    whoAmI(currentUserProfile: UserProfile): Promise<string>;
+    whoAmI(currentUserProfile: UserProfile): Promise<UserProfile>;
+    findById(id: string, filter?: FilterExcludingWhere<User>): Promise<User>;
     signUp(newUserRequest: NewUserRequest): Promise<User>;
 }

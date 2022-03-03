@@ -27,6 +27,10 @@ export class Confianca extends Entity {
   })
   phone?: string;
 
+  @property({
+    type: 'string',
+  })
+  type?: string;
 
   constructor(data?: Partial<Confianca>) {
     super(data);

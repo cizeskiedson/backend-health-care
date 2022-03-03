@@ -2,11 +2,11 @@ import { Entity } from '@loopback/repository';
 import { Confianca } from './confianca.model';
 export declare class Paciente extends Entity {
     email: string;
+    name: string;
     cpf: string;
     age?: string;
     address?: string;
     phone?: string;
-    birthDate?: string;
     bloodType?: string;
     healthProblems?: string;
     weight?: string;

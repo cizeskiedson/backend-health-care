@@ -1,4 +1,4 @@
-import {inject, Getter} from '@loopback/core';
+import {Getter, inject} from '@loopback/core';
 import {DefaultCrudRepository, repository, HasManyThroughRepositoryFactory} from '@loopback/repository';
 import {DbDataSource} from '../datasources';
 import {Medico, MedicoRelations, Paciente, Mp} from '../models';
@@ -17,9 +17,14 @@ export class MedicoRepository extends DefaultCrudRepository<
         >;
 
   constructor(
-    @inject('datasources.db') dataSource: DbDataSource, @repository.getter('MpRepository') protected mpRepositoryGetter: Getter<MpRepository>, @repository.getter('PacienteRepository') protected pacienteRepositoryGetter: Getter<PacienteRepository>,
+    @inject('datasources.db') dataSource: DbDataSource,
+    @repository.getter('MpRepository')
+    protected mpRepositoryGetter: Getter<MpRepository>,
+    @repository.getter('PacienteRepository')
+    protected pacienteRepositoryGetter: Getter<PacienteRepository>,
   ) {
     super(Medico, dataSource);
     this.pacientes = this.createHasManyThroughRepositoryFactoryFor('pacientes', pacienteRepositoryGetter, mpRepositoryGetter,);
+    this.registerInclusionResolver('pacientes', this.pacientes.inclusionResolver);
   }
 }

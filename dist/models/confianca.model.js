@@ -37,6 +37,12 @@ let Confianca = class Confianca extends repository_1.Entity {
     }),
     (0, tslib_1.__metadata)("design:type", String)
 ], Confianca.prototype, "phone", void 0);
+(0, tslib_1.__decorate)([
+    (0, repository_1.property)({
+        type: 'string',
+    }),
+    (0, tslib_1.__metadata)("design:type", String)
+], Confianca.prototype, "type", void 0);
 Confianca = (0, tslib_1.__decorate)([
     (0, repository_1.model)(),
     (0, tslib_1.__metadata)("design:paramtypes", [Object])

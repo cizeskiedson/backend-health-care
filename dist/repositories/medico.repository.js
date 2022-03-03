@@ -12,6 +12,7 @@ let MedicoRepository = class MedicoRepository extends repository_1.DefaultCrudRe
         this.mpRepositoryGetter = mpRepositoryGetter;
         this.pacienteRepositoryGetter = pacienteRepositoryGetter;
         this.pacientes = this.createHasManyThroughRepositoryFactoryFor('pacientes', pacienteRepositoryGetter, mpRepositoryGetter);
+        this.registerInclusionResolver('pacientes', this.pacientes.inclusionResolver);
     }
 };
 MedicoRepository = (0, tslib_1.__decorate)([

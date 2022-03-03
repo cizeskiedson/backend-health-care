@@ -40,14 +40,6 @@ export class Paciente extends Entity {
   phone?: string;
 
   @property({
-    type: 'date',
-    jsonSchema: {
-      format: 'date',
-    },
-  })
-  birthDate?: string;
-
-  @property({
     type: 'string',
   })
   bloodType?: string;

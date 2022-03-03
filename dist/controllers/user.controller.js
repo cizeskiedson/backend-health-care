@@ -61,7 +61,10 @@ let UserController = class UserController {
         return { token, user };
     }
     async whoAmI(currentUserProfile) {
-        return currentUserProfile[security_1.securityId];
+        return currentUserProfile;
+    }
+    async findById(id, filter) {
+        return this.userRepository.findById(id, filter);
     }
     async signUp(newUserRequest) {
         const password = await (0, bcryptjs_1.hash)(newUserRequest.password, await (0, bcryptjs_1.genSalt)());
@@ -106,9 +109,7 @@ let UserController = class UserController {
                 description: 'Return current user',
                 content: {
                     'application/json': {
-                        schema: {
-                            type: 'string',
-                        },
+                        schema: {},
                     },
                 },
             },
@@ -119,6 +120,23 @@ let UserController = class UserController {
     (0, tslib_1.__metadata)("design:paramtypes", [Object]),
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], UserController.prototype, "whoAmI", null);
+(0, tslib_1.__decorate)([
+    (0, authentication_1.authenticate)('jwt'),
+    (0, rest_1.get)('/users/{id}'),
+    (0, rest_1.response)(200, {
+        description: 'User model instance',
+        content: {
+            'application/json': {
+                schema: (0, rest_1.getModelSchemaRef)(authentication_jwt_1.User, { includeRelations: true }),
+            },
+        },
+    }),
+    (0, tslib_1.__param)(0, rest_1.param.path.string('id')),
+    (0, tslib_1.__param)(1, rest_1.param.filter(authentication_jwt_1.User, { exclude: 'where' })),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [String, Object]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
+], UserController.prototype, "findById", null);
 (0, tslib_1.__decorate)([
     (0, rest_1.post)('/signup', {
         responses: {
