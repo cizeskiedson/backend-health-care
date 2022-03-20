@@ -1,4 +1,5 @@
 export * from './confianca.controller';
+export * from './email.controller';
 export * from './medico-paciente.controller';
 export * from './medico.controller';
 export * from './mp.controller';

@@ -26,3 +26,4 @@ typings/
 
 .DS_Store
 .eslintcache
+sendgrid.env

@@ -4,6 +4,8 @@ export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new BackendHealthCareApplication(options);
+  /*  const response = sendEmail();
+  console.log(response); */
   await app.boot();
   await app.start();
 

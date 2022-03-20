@@ -7,6 +7,8 @@ const application_1 = require("./application");
 (0, tslib_1.__exportStar)(require("./application"), exports);
 async function main(options = {}) {
     const app = new application_1.BackendHealthCareApplication(options);
+    /*  const response = sendEmail();
+    console.log(response); */
     await app.boot();
     await app.start();
     const url = app.restServer.url;
