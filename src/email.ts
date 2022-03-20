@@ -1,7 +1,7 @@
 import {Mensagem} from './models/message.model';
 
 export const sendEmail = async (mensagem: Mensagem): Promise<boolean> => {
-  /* require('dotenv-safe').config(); */
+  require('dotenv').config();
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {

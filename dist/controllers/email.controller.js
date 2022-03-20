@@ -13,7 +13,7 @@ class EmailController {
     }
 }
 (0, tslib_1.__decorate)([
-    (0, rest_1.post)('/message/{email}'),
+    (0, rest_1.post)('/message'),
     (0, tslib_1.__param)(0, (0, rest_1.requestBody)({
         content: {
             'application/json': {

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
 const sendEmail = async (mensagem) => {
-    /* require('dotenv-safe').config(); */
+    require('dotenv').config();
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
