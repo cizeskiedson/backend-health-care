@@ -1,6 +1,9 @@
-import {Entity, hasMany, model, property} from '@loopback/repository';
+import {Entity, hasMany, model, property, hasOne} from '@loopback/repository';
 import {Confianca} from './confianca.model';
 import {Pc} from './pc.model';
+import {DataLastDay} from './data-last-day.model';
+import {DataMonth} from './data-month.model';
+import {DataYear} from './data-year.model';
 
 @model()
 export class Paciente extends Entity {
@@ -77,6 +80,15 @@ export class Paciente extends Entity {
     },
   })
   confiancas: Confianca[];
+
+  @hasOne(() => DataLastDay, {keyTo: 'emailPaciente'})
+  dataLastDay: DataLastDay;
+
+  @hasOne(() => DataMonth, {keyTo: 'emailPaciente'})
+  dataMonth: DataMonth;
+
+  @hasOne(() => DataYear, {keyTo: 'emailPaciente'})
+  dataYear: DataYear;
 
   constructor(data?: Partial<Paciente>) {
     super(data);

@@ -1,5 +1,8 @@
 import { Entity } from '@loopback/repository';
 import { Confianca } from './confianca.model';
+import { DataLastDay } from './data-last-day.model';
+import { DataMonth } from './data-month.model';
+import { DataYear } from './data-year.model';
 export declare class Paciente extends Entity {
     email: string;
     name: string;
@@ -14,6 +17,9 @@ export declare class Paciente extends Entity {
     observations?: string;
     allergies?: string;
     confiancas: Confianca[];
+    dataLastDay: DataLastDay;
+    dataMonth: DataMonth;
+    dataYear: DataYear;
     constructor(data?: Partial<Paciente>);
 }
 export interface PacienteRelations {

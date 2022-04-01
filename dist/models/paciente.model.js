@@ -5,6 +5,9 @@ const tslib_1 = require("tslib");
 const repository_1 = require("@loopback/repository");
 const confianca_model_1 = require("./confianca.model");
 const pc_model_1 = require("./pc.model");
+const data_last_day_model_1 = require("./data-last-day.model");
+const data_month_model_1 = require("./data-month.model");
+const data_year_model_1 = require("./data-year.model");
 let Paciente = class Paciente extends repository_1.Entity {
     constructor(data) {
         super(data);
@@ -97,6 +100,18 @@ let Paciente = class Paciente extends repository_1.Entity {
     }),
     (0, tslib_1.__metadata)("design:type", Array)
 ], Paciente.prototype, "confiancas", void 0);
+(0, tslib_1.__decorate)([
+    (0, repository_1.hasOne)(() => data_last_day_model_1.DataLastDay, { keyTo: 'emailPaciente' }),
+    (0, tslib_1.__metadata)("design:type", data_last_day_model_1.DataLastDay)
+], Paciente.prototype, "dataLastDay", void 0);
+(0, tslib_1.__decorate)([
+    (0, repository_1.hasOne)(() => data_month_model_1.DataMonth, { keyTo: 'emailPaciente' }),
+    (0, tslib_1.__metadata)("design:type", data_month_model_1.DataMonth)
+], Paciente.prototype, "dataMonth", void 0);
+(0, tslib_1.__decorate)([
+    (0, repository_1.hasOne)(() => data_year_model_1.DataYear, { keyTo: 'emailPaciente' }),
+    (0, tslib_1.__metadata)("design:type", data_year_model_1.DataYear)
+], Paciente.prototype, "dataYear", void 0);
 Paciente = (0, tslib_1.__decorate)([
     (0, repository_1.model)(),
     (0, tslib_1.__metadata)("design:paramtypes", [Object])

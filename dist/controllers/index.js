@@ -11,4 +11,10 @@ const tslib_1 = require("tslib");
 (0, tslib_1.__exportStar)(require("./pc.controller"), exports);
 (0, tslib_1.__exportStar)(require("./ping.controller"), exports);
 (0, tslib_1.__exportStar)(require("./user.controller"), exports);
+(0, tslib_1.__exportStar)(require("./data-last-day.controller"), exports);
+(0, tslib_1.__exportStar)(require("./data-month.controller"), exports);
+(0, tslib_1.__exportStar)(require("./data-year.controller"), exports);
+(0, tslib_1.__exportStar)(require("./paciente-data-last-day.controller"), exports);
+(0, tslib_1.__exportStar)(require("./paciente-data-month.controller"), exports);
+(0, tslib_1.__exportStar)(require("./paciente-data-year.controller"), exports);
 //# sourceMappingURL=index.js.map
