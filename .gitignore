@@ -27,4 +27,4 @@ typings/
 .DS_Store
 .eslintcache
 sendgrid.env
-.env.example
+src/.env.example
